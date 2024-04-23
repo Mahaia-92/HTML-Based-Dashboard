@@ -2,6 +2,10 @@
 
 This is a Dashboard system that created based on HTML , CSS and Javascript based on Bootstrap 05. You can use this project for create management related dashboard if some one don't have database knowledge. you can easily integrate google form , google sheets as a database to this system.
 
+- For testing purposes you can use these credentials for that.
+      - Username : user
+      - Password : userpass
+
 ## Technologies Used 💻
 
 This is a frontend-based dashboard connected to Google Sheets and Google Forms for database management.
