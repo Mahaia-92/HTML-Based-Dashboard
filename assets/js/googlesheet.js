@@ -1,6 +1,6 @@
 const scriptURL = '#'
 
-const form = document.forms['openday-form']
+const form = document.forms['example-form']
 
 form.addEventListener('submit', e => {
   e.preventDefault()

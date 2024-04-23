@@ -71,7 +71,7 @@
               <span class="hide-menu">IFrames and Forms</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="Pages/application_team/police.html" aria-expanded="false">
+              <a class="sidebar-link" href="form_and_googlesheet.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-star"></i>
                 </span>
@@ -137,40 +137,89 @@
       </header>
       <!--  Header End -->
 
-
+      <!-- HTML Form Box -->
       <div class="container-fluid">
-        <div class="card">
-          <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">ClipBoard Copy Button</h5>
-            <div class="row">
-              
-                <!--card-->
-                <div class="col-md-4">
-                  <div class="card">
-                    <img src="../assets/images/products/clipboard.jpg" class="card-img-top" alt="Clip Board">
-                    <div class="card-body">
-                      <h5 class="card-title">Clip Board Copy Button</h5>
-                      <p class="card-text"> Copy below button to copy the content</p>
-                      <!-- You can add any thing to the href to copy to your clipboard -->
-                      <a href="Sample Test" id="copyButton" class="btn btn-primary"><i class="ti ti-clipboard"></i> Copy Button Function</a>
-                      <!-- Clipboard Copy Notification -->
-                      <div id="notification" class="notification"></div>
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Example Details Form</h5>
+              <div class="card">
+                <div class="card-body">
+
+                  <!-- Form Start -->
+                  <form name="example-form">
+                    <div class="mb-3">
+                      <label for="ApllicantDiscordName" class="form-label">Applicant Discord Name</label>
+                      <input type="text" name="Player Discord Name" class="form-control" id="playerdiscordname" aria-describedby="discordName">
                     </div>
-                  </div>
+                    <div class="mb-3">
+                        <label for="ApllicantDiscordID" class="form-label">Applicant Discord ID</label>
+                        <input type="text" name="Discord ID" class="form-control" id="playerdiscordid" aria-describedby="discordID">
+                        <div id="emailHelp" class="form-text">Right Click On the User and Copy UserID</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ApllicantName" class="form-label">Applicant Name</label>
+                        <input type="text" name="Player Name" class="form-control" id="applicantname" aria-describedby="applicantName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ApplicantCategory" class="form-label">Suspicious Player?</label>
+                        <select class="form-select" name="Suspicious Player" id="applicantcategory" aria-describedby="applicantCategory">
+                            <option disabled selected>Select a Option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Note" class="form-label">Note</label>
+                        <input type="text" name="Note" class="form-control" id="note" aria-describedby="note">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Interviewed Staff" class="form-label">Interviewed Staff Member</label>
+                        <select class="form-select" name="Interviewed Member" id="Interviewedmember" aria-describedby="InterviewedMember">
+                            <option disabled selected>Select a Member</option>
+                            <option value="Hamza">Hamza</option>
+                            <option value="TJay">TJay</option>
+                            <option value="Abhi">Abhi</option>
+                            <option value="Chillmora">Chillmora</option>
+                            <option value="Woods">Woods</option>
+                            <option value="Sohan">Sohan</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Above Details are correct and confirmed</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Submit</button>
+                  </form>
+                  <!-- Form END -->
+
                 </div>
-                <!--card end-->
-              
+              </div>
+            
             </div>
           </div>
         </div>
       </div>
 
 
-<!-- Clipboard Copy Function -->
-<script src="../assets/js/clipboard.js"></script>
+<!-- Check box verification function -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const checkbox = document.getElementById('exampleCheck1');
+      const submitBtn = document.getElementById('submitBtn');
+
+      checkbox.addEventListener('change', () => {
+          submitBtn.disabled = !checkbox.checked;
+      });
+  });
+</script>
 
 <!-- login protect function -->
 <script src="../assets/js/login/loginprotect.js"></script>
+
+<!-- HTML form and Google Sheet Connection Function -->
+<script src="../assets/js/googlesheet.js"></script>
+
 
 <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
 <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
