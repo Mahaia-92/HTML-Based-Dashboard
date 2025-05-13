@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة تحكم سقيفة</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    body {
+      background-color: #f5f0e6;
+      color: #3e3e3e;
+      font-family: 'Cairo', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #8b5e3c;
+    }
+
+    #chart_div {
+      margin: auto;
+      width: 90%;
+      height: 500px;
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      background-color: #fff;
+      padding: 10px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var queryString = encodeURIComponent('SELECT A, B');
+      var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/1vSbsVGBOpP_maGsFfmRt0AgM-9lfTbgG8cqcSescke0Il8PQ6A8JRAYX9xNFCWNHo7Q28a8gGsG4sES/gviz/tq?sheet=Summary&headers=1&tq=' + queryString;
+
+      var query = new google.visualization.Query(dataSourceUrl);
+      query.send(function(response) {
+        if (response.isError()) {
+          alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+          return;
+        }
+
+        var data = response.getDataTable();
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, {
+          title: 'نظرة عامة على الإيرادات',
+          titleTextStyle: { color: '#3e3e3e', fontSize: 20 },
+          backgroundColor: '#fff',
+          pieHole: 0.4,
+          colors: ['#d4af37', '#8b5e3c', '#f5f0e6', '#000', '#fff']
+        });
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <h1>لوحة تحكم سقيفة</h1>
+  <div id="chart_div"></div>
+</body>
+</html>
